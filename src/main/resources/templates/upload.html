@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Charger un fichier</h1>
+
+<h2>Charger un fichier</h2>
+<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" accept=".csv, .txt, .xml, .json">
+  <button type="submit">Charger</button>
+</form>
+</body>
+</html>

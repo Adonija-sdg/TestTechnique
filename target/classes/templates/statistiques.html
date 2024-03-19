@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistiques</title>
+</head>
+<body>
+<h1>Statistiques des clients</h1>
+
+<!-- Affichage des statistiques de salaire par profession -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>Profession</th>
+        <th>Moyenne des salaires</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${moyenneSalaires}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage des clients lus à partir du fichier CSV -->
+<h2>Clients lus à partir du fichier CSV</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Age</th>
+        <th>Profession</th>
+        <th>Salaire</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clientsFromCsv}">
+        <td th:text="${client.nom}"></td>
+        <td th:text="${client.prenom}"></td>
+        <td th:text="${client.age}"></td>
+        <td th:text="${client.profession}"></td>
+        <td th:text="${client.salaire}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage des clients ajoutés manuellement -->
+<h2>Clients ajoutés manuellement</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Age</th>
+        <th>Profession</th>
+        <th>Salaire</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clientsManuels}">
+        <td th:text="${client.nom}"></td>
+        <td th:text="${client.prenom}"></td>
+        <td th:text="${client.age}"></td>
+        <td th:text="${client.profession}"></td>
+        <td th:text="${client.salaire}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
